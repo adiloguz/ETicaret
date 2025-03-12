@@ -1,0 +1,2260 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crystalify - Glassmorphism E-Ticaret</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* TEMEL STIL */
+        :root {
+            --primary-color: rgba(255, 255, 255, 0.25);
+            --border-color: rgba(255, 255, 255, 0.18);
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --text-color: #fff;
+            --accent-color: #64b5f6;
+            --background-color: #141e30;
+            --secondary-background: #243b55;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--background-color), var(--secondary-background));
+            color: var(--text-color);
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+
+        /* GLASSMORPHISM STİLİ */
+        .glass {
+            background: var(--primary-color);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 32px 0 var(--shadow-color);
+            border-radius: 10px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* HEADER VE NAVİGASYON */
+        header {
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 25px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .cart-icon, .user-icon {
+            position: relative;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--accent-color);
+            color: #fff;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* ARAMA FORMU */
+        .search-section {
+            margin: 20px 0;
+        }
+
+        .search-form {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            border-radius: 10px 0 0 10px;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .search-btn {
+            padding: 15px 25px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 0 10px 10px 0;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: #4a8ec0;
+        }
+
+        /* HERO SECTİON */
+        .hero {
+            height: 500px;
+            margin: 30px 0;
+            display: flex;
+            align-items: center;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 800"><defs><linearGradient id="a" x1="50%" x2="50%" y1="0%" y2="100%"><stop offset="0%" stop-color="%23243B55" stop-opacity="0"/><stop offset="100%" stop-color="%23141E30" stop-opacity=".5"/></linearGradient></defs><rect width="100%" height="100%" fill="url(%23a)"/><g fill="%23FFF" fill-opacity=".3"><circle r="2" cx="80" cy="100"/><circle r="1.5" cx="200" cy="70"/><circle r="1.8" cx="120" cy="200"/><circle r="2.5" cx="300" cy="155"/><circle r="1.2" cx="550" cy="170"/><circle r="2" cx="680" cy="120"/><circle r="1.7" cx="400" cy="250"/><circle r="1.3" cx="600" cy="320"/><circle r="2.2" cx="720" cy="370"/><circle r="1.5" cx="500" cy="400"/><circle r="1.8" cx="280" cy="500"/><circle r="2.1" cx="180" cy="600"/><circle r="1.9" cx="400" cy="650"/><circle r="2.3" cx="650" cy="580"/><circle r="1.4" cx="750" cy="700"/></g></svg>');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--primary-color);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            z-index: 1;
+        }
+
+        .hero-content {
+            z-index: 2;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 20px rgba(100, 181, 246, 0.4);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(100, 181, 246, 0.6);
+        }
+
+        /* KATEGORİLER - MİNİMALİST STİL */
+        .categories {
+            margin: 50px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+
+        .categories-flex {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .category-pill {
+            padding: 12px 25px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .category-pill:hover, .category-pill.active {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(100, 181, 246, 0.3);
+        }
+
+        /* ÜRÜNLER */
+        .products-section {
+            margin: 50px 0;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px var(--shadow-color);
+        }
+
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #ff5252;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .product-details {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .product-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            height: 54px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .current-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .original-price {
+            margin-left: 10px;
+            font-size: 0.9rem;
+            text-decoration: line-through;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .stars {
+            color: #ffc107;
+            margin-right: 5px;
+        }
+
+        .rating-count {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+
+        .add-to-cart {
+            padding: 10px 15px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            flex-grow: 1;
+            margin-right: 10px;
+            font-weight: 500;
+        }
+
+        .add-to-cart:hover {
+            background: #4a8ec0;
+        }
+
+        .wishlist-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .wishlist-btn:hover {
+            color: #ff5252;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* SEPET PANEL */
+        .cart-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background: var(--background-color);
+            z-index: 1001;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-panel.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cart-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-info {
+            flex: 1;
+        }
+
+        .cart-item-title {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .cart-item-price {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .cart-quantity {
+            display: flex;
+            align-items: center;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--text-color);
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .quantity-input {
+            width: 40px;
+            height: 30px;
+            text-align: center;
+            margin: 0 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            color: var(--text-color);
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: #ff5252;
+            margin-left: auto;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .cart-footer {
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .subtotal {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .subtotal-amount {
+            color: var(--accent-color);
+        }
+
+        .checkout-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .checkout-btn:hover {
+            background: #4a8ec0;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 50px 0;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .empty-cart i {
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.3);
+            margin-bottom: 20px;
+        }
+
+        /* LOADING SPINNER */
+        .loading-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* SAYFALAMA */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .pagination button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--text-color);
+            padding: 8px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pagination button:hover, .pagination button.active {
+            background: var(--accent-color);
+        }
+
+        /* İNDİRİM BÖLÜMÜ */
+        .promo {
+            margin: 80px 0;
+            position: relative;
+            padding: 80px 0;
+            overflow: hidden;
+        }
+
+        .promo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #3a6186, #89253e);
+            opacity: 0.9;
+            z-index: -1;
+        }
+
+        .promo-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .promo h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .promo p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .promo-code {
+            display: inline-block;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .countdown-item {
+            margin: 0 10px;
+            text-align: center;
+        }
+
+        .countdown-number {
+            display: block;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* MÜŞTERİ YORUMLARI */
+        .testimonials {
+            margin: 50px 0;
+        }
+
+        .testimonials-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .testimonials-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .testimonial-card {
+            min-width: 300px;
+            flex: 0 0 calc(33.333% - 20px);
+            scroll-snap-align: start;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-content {
+            flex-grow: 1;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-content::before {
+            content: '\201C';
+            font-size: 4rem;
+            position: absolute;
+            top: -30px;
+            left: -10px;
+            color: var(--accent-color);
+            opacity: 0.3;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-avatar i {
+            font-size: 30px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .author-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .author-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .author-title {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* HABER BÜLTENİ */
+        .newsletter {
+            margin: 80px 0;
+            padding: 60px 0;
+            background: linear-gradient(45deg, var(--background-color), var(--secondary-background));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%23fff" opacity="0.3"/></svg>');
+            background-size: 150px;
+            z-index: 0;
+            opacity: 0.05;
+        }
+
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .newsletter h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .newsletter-form {
+            display: flex;
+            overflow: hidden;
+            border-radius: 50px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 25px;
+            border: none;
+            outline: none;
+            background: transparent;
+            color: var(--text-color);
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .newsletter-btn {
+            padding: 15px 30px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background: #4a8ec0;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--background-color);
+            padding: 80px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--accent-color);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-col ul li a i {
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-color);
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .contact-info i {
+            margin-right: 15px;
+            min-width: 20px;
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        .payment-methods i {
+            font-size: 24px;
+            margin: 0 5px;
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+
+        .payment-methods i:hover {
+            color: var(--accent-color);
+        }
+
+        /* MOBİL NAVİGASYON */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            height: 100%;
+            background: var(--background-color);
+            z-index: 1000;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            padding: 20px;
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-menu.active {
+            left: 0;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .close-menu {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+        }
+
+        .mobile-nav-links li {
+            margin-bottom: 20px;
+        }
+
+        .mobile-nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .mobile-nav-links a i {
+            margin-right: 10px;
+            color: var(--accent-color);
+            width: 25px;
+        }
+
+        .mobile-social-links {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* BİLDİRİM ALANI */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            max-width: 300px;
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE TASARIM */
+        @media (max-width: 1100px) {
+            .testimonial-card {
+                flex: 0 0 calc(50% - 20px);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .testimonial-card {
+                flex: 0 0 calc(100% - 20px);
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .product-image {
+                height: 200px;
+            }
+
+            .promo h2 {
+                font-size: 2rem;
+            }
+
+            .countdown-number {
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .cart-panel {
+                max-width: 320px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-content {
+                padding: 10px 15px;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .newsletter h2 {
+                font-size: 1.8rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                background: transparent;
+                box-shadow: none;
+            }
+
+            .newsletter-input {
+                width: 100%;
+                border-radius: 50px;
+                margin-bottom: 15px;
+                background: rgba(255, 255, 255, 0.1);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .newsletter-btn {
+                width: 100%;
+                border-radius: 50px;
+            }
+
+            .promo-code {
+                font-size: 1.2rem;
+                padding: 10px 20px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cart-panel {
+                max-width: 100%;
+            }
+        }
+
+        /* ANİMASYON */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        /* KAYDIRMA ÇUBUĞU */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- MOBİL MENÜ -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="#" class="logo">
+                <i class="fas fa-gem"></i>
+                Crystalify
+            </a>
+            <button class="close-menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="#"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+            <li><a href="#" class="category-link" data-category="all"><i class="fas fa-shopping-bag"></i> Tüm Ürünler</a></li>
+            <li><a href="#" class="category-link" data-category="electronics"><i class="fas fa-mobile-alt"></i> Elektronik</a></li>
+            <li><a href="#" class="category-link" data-category="jewelery"><i class="fas fa-gem"></i> Takı</a></li>
+            <li><a href="#" class="category-link" data-category="men's clothing"><i class="fas fa-tshirt"></i> Erkek Giyim</a></li>
+            <li><a href="#" class="category-link" data-category="women's clothing"><i class="fas fa-female"></i> Kadın Giyim</a></li>
+            <li><a href="#"><i class="fas fa-tag"></i> İndirimler</a></li>
+            <li><a href="profile_card.html"><i class="fas fa-phone"></i> Geliştirici bilgisi</a></li>
+             
+        </ul>
+        <div class="mobile-social-links social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-pinterest"></i></a>
+        </div>
+    </div>
+    <div class="overlay"></div>
+
+    <!-- SEPET PANEL -->
+    <div class="cart-panel">
+        <div class="cart-header">
+            <div class="cart-title">Alışveriş Sepeti</div>
+            <button class="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items">
+            <!-- Sepet öğeleri JavaScript ile buraya eklenecek -->
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Sepetiniz boş</p>
+                <p>Ürünleri keşfedin ve sepetinize ekleyin</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="subtotal">
+                <span>Toplam:</span>
+                <span class="subtotal-amount">₺0.00</span>
+            </div>
+            <button class="checkout-btn">Siparişi Tamamla</button>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <div class="header-content glass">
+                <a href="#" class="logo">
+                    <i class="fas fa-gem"></i>
+                    Crystalify
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#">Ana Sayfa</a></li>
+                    <li><a href="#" class="category-link" data-category="all">Tüm Ürünler</a></li>
+                    <li><a href="#" class="category-link" data-category="electronics">Elektronik</a></li>
+                    <li><a href="#" class="category-link" data-category="jewelery">Takı</a></li>
+                    <li><a href="#" class="category-link" data-category="men's clothing">Erkek Giyim</a></li>
+                    <li><a href="#" class="category-link" data-category="women's clothing">Kadın Giyim</a></li>
+                </ul>
+                <div class="nav-buttons">
+                    <button class="mobile-menu-btn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <a href="#" class="user-icon">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <a href="#" class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ARAMA FORMU -->
+    <section class="search-section">
+        <div class="container">
+            <form class="search-form glass" id="search-form">
+                <input type="text" class="search-input" id="search-input" placeholder="Ne aramıştınız?">
+                <button type="submit" class="search-btn">Ara</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content glass">
+                <h1>Şeffaflığın Zarafeti</h1>
+                <p>Glassmorphism tasarım trendini yansıtan özel koleksiyonumuz ile stilinizi bir üst seviyeye taşıyın. Minimalist ve modern ürünlerimizi keşfedin.</p>
+                <a href="#" class="cta-btn" id="shop-now-btn">Alışverişe Başla</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- KATEGORİLER - MİNİMALİST STİL -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Kategoriler</h2>
+            <div class="categories-flex">
+                <div class="category-pill active" data-category="all">Tüm Ürünler</div>
+                <div class="category-pill" data-category="electronics">Elektronik</div>
+                <div class="category-pill" data-category="jewelery">Takı</div>
+                <div class="category-pill" data-category="men's clothing">Erkek Giyim</div>
+                <div class="category-pill" data-category="women's clothing">Kadın Giyim</div>
+                <div class="category-pill" data-category="discount">İndirimli Ürünler</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÜRÜNLER -->
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title">Ürünlerimiz</h2>
+            <div class="loading-container" id="products-loading">
+                <div class="spinner"></div>
+            </div>
+            <div class="products-grid" id="products-grid">
+                <!-- Ürünler FakeStore API'den JavaScript ile doldurulacak -->
+            </div>
+            <div class="pagination" id="pagination">
+                <!-- Sayfalama butonları JavaScript ile doldurulacak -->
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMO SECTION -->
+    <section class="promo glass">
+        <div class="container">
+            <div class="promo-content">
+                <h2>Büyük Yaz İndirimi</h2>
+                <p>Tüm sezon ürünlerinde geçerli kampanyamızı kaçırmayın! İndirim kodunu kullanarak %30'a varan indirimlerden yararlanın.</p>
+                <div class="promo-code">SUMMER30</div>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-days">2</span>
+                        <span class="countdown-label">Gün</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-hours">18</span>
+                        <span class="countdown-label">Saat</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-minutes">45</span>
+                        <span class="countdown-label">Dakika</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="countdown-seconds">22</span>
+                        <span class="countdown-label">Saniye</span>
+                    </div>
+                </div>
+                <a href="#" class="cta-btn" id="promo-btn">Şimdi Alışveriş Yap</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÜŞTERİ YORUMLARI -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Müşterilerimiz Ne Diyor?</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial-card glass">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">Crystalify'dan aldığım ürünler gerçekten çok kaliteli ve şık. Glassmorphism tasarımı günlük kullanımlarımda beni çok mutlu ediyor. Kesinlikle tavsiye ediyorum!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">Ayşe Y.</span>
+                            <span class="author-title">Müşteri</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card glass">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">Hızlı kargo ve müşteri hizmetlerinin ilgisi inanılmaz! Ürünler websitedeki görsellerle birebir aynı. Minimalist tasarım severlere kesinlikle öneriyorum.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">Mehmet K.</span>
+                            <span class="author-title">Premium Üye</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card glass">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">Elektronik ürünleri için tercih ettim ve çok memnun kaldım. Özellikle taşınabilir şarj cihazı uzun pil ömrü ve şık tasarımıyla harika.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">Zeynep A.</span>
+                            <span class="author-title">İç Mimar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card glass">
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">Satın aldığım takılar hem şık hem de dayanıklı. Kristal tasarımı ile diğer markalardan çok farklı bir görünüme sahip. Geniş ürün yelpazesi için teşekkürler!</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">Ahmet B.</span>
+                            <span class="author-title">Teknoloji Meraklısı</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HABER BÜLTENİ -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content glass">
+                <h2>Haber Bülteni</h2>
+                <p>Yeni ürünler, indirimler ve kampanyalardan haberdar olmak için bültenimize üye olun.</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="E-posta adresiniz" required>
+                    <button type="submit" class="newsletter-btn">Abone Ol</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>Hakkımızda</h3>
+                    <p style="margin-bottom:20px;color:rgba(255,255,255,0.7);line-height:1.6;">Crystalify, minimalist ve modern tasarımları sevenlere özel, şeffaflığın zarafetini yansıtan ürünler sunmaktadır.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Kategoriler</h3>
+                    <ul>
+                        <li><a href="#" class="category-link" data-category="electronics"><i class="fas fa-angle-right"></i> Elektronik</a></li>
+                        <li><a href="#" class="category-link" data-category="jewelery"><i class="fas fa-angle-right"></i> Takı</a></li>
+                        <li><a href="#" class="category-link" data-category="men's clothing"><i class="fas fa-angle-right"></i> Erkek Giyim</a></li>
+                        <li><a href="#" class="category-link" data-category="women's clothing"><i class="fas fa-angle-right"></i> Kadın Giyim</a></li>
+                        <li><a href="#" class="category-link" data-category="discount"><i class="fas fa-angle-right"></i> İndirimli Ürünler</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Yardım</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Sipariş Takibi</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> İade & Değişim</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Sıkça Sorulan Sorular</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Gizlilik Politikası</a></li>
+                        <li><a href="#"><i class="fas fa-angle-right"></i> Kullanım Koşulları</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>İletişim</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>Bağdat Cad. No:123, Kadıköy, İstanbul</p>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>+90 (555) 555 55 55</p>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@adiloguz.io</p>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-clock"></i>
+                        <p>Hafta içi: 09:00 - 18:00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-apple-pay"></i>
+                </div>
+                <p>&copy; 2025 Geliştirici Adil Oğuz. Tüm Hakları Saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BİLDİRİM ALAN -->
+    <div class="notification" id="notification"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Bazı değişkenler ve sabitler
+            const productsGrid = document.getElementById('products-grid');
+            const productsLoading = document.getElementById('products-loading');
+            const paginationElement = document.getElementById('pagination');
+            const cartItemsContainer = document.querySelector('.cart-items');
+            const cartCountElement = document.querySelector('.cart-count');
+            const subtotalElement = document.querySelector('.subtotal-amount');
+            const emptyCartElement = document.querySelector('.empty-cart');
+            const searchForm = document.getElementById('search-form');
+            const searchInput = document.getElementById('search-input');
+            const notificationElement = document.getElementById('notification');
+            
+            let products = [];
+            let filteredProducts = [];
+            let cart = [];
+            let currentCategory = 'all';
+            let currentPage = 1;
+            const itemsPerPage = 8;
+
+            // Sepeti localStorage'dan yükleme
+            loadCart();
+
+            // FakeStore API'den ürünleri çekme
+            fetchProducts();
+
+            // Sepet butonunu dinleme
+            document.querySelector('.cart-icon').addEventListener('click', toggleCart);
+            document.querySelector('.close-cart').addEventListener('click', toggleCart);
+
+            // Mobil menü fonksiyonları
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const closeMenuBtn = document.querySelector('.close-menu');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const overlay = document.querySelector('.overlay');
+
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            closeMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            overlay.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+                
+                // Sepeti de kapat
+                document.querySelector('.cart-panel').classList.remove('active');
+            });
+
+            // Kategori butonlarını dinleme
+            document.querySelectorAll('.category-pill').forEach(pill => {
+                pill.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    setActiveCategory(category);
+                    filterProducts(category);
+                });
+            });
+
+            // Mobil menüdeki kategori linklerini dinleme
+            document.querySelectorAll('.category-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const category = this.getAttribute('data-category');
+                    setActiveCategory(category);
+                    filterProducts(category);
+                    
+                    // Mobil menüyü kapat
+                    mobileMenu.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+
+            // Alışverişe başla butonunu dinleme
+            document.getElementById('shop-now-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                const productsSection = document.querySelector('.products-section');
+                productsSection.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // İndirim bölümü butonunu dinleme
+            document.getElementById('promo-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                setActiveCategory('discount');
+                filterProducts('discount');
+                const productsSection = document.querySelector('.products-section');
+                productsSection.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Arama formunu dinleme
+            searchForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const searchTerm = searchInput.value.trim().toLowerCase();
+                if (searchTerm) {
+                    searchProducts(searchTerm);
+                } else {
+                    filterProducts(currentCategory);
+                }
+            });
+
+            // Haber bülteni formunu dinleme
+            document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = this.querySelector('input[type="email"]').value;
+                showNotification(`${email} adresiniz bültenimize başarıyla kaydedildi!`);
+                this.reset();
+            });
+
+            // Checkout butonunu dinleme
+            document.querySelector('.checkout-btn').addEventListener('click', function() {
+                if (cart.length > 0) {
+                    showNotification('Sipariş tamamlandı! Teşekkür ederiz.');
+                    cart = [];
+                    saveCart();
+                    updateCartUI();
+                    toggleCart();
+                } else {
+                    showNotification('Lütfen sepetinize ürün ekleyin.');
+                }
+            });
+
+            // FakeStore API'den ürünleri çekme
+            function fetchProducts() {
+                productsLoading.style.display = 'flex';
+                productsGrid.style.display = 'none';
+                
+                fetch('https://fakestoreapi.com/products')
+                    .then(response => response.json())
+                    .then(data => {
+                        products = data.map(product => {
+                            // Her ürün için rastgele indirim
+                            const hasDiscount = Math.random() > 0.6;
+                            const discountRate = hasDiscount ? Math.floor(Math.random() * 30) + 10 : 0; // %10 - %40 arası indirim
+                            const originalPrice = product.price;
+                            const discountedPrice = hasDiscount ? originalPrice * (1 - discountRate / 100) : originalPrice;
+                            
+                            return {
+                                ...product,
+                                hasDiscount,
+                                discountRate,
+                                originalPrice,
+                                price: discountedPrice
+                            };
+                        });
+                        
+                        filteredProducts = [...products];
+                        renderProducts();
+                        productsLoading.style.display = 'none';
+                        productsGrid.style.display = 'grid';
+                    })
+                    .catch(error => {
+                        console.error('Ürünler yüklenirken hata oluştu:', error);
+                        productsLoading.innerHTML = '<p>Ürünler yüklenirken bir hata oluştu. Lütfen daha sonra tekrar deneyin.</p>';
+                    });
+            }
+
+            // Ürünleri filtreleme
+            function filterProducts(category) {
+                currentCategory = category;
+                currentPage = 1;
+                
+                if (category === 'all') {
+                    filteredProducts = [...products];
+                } else if (category === 'discount') {
+                    // İndirimli ürünleri filtrele
+                    filteredProducts = products.filter(product => product.hasDiscount);
+                } else {
+                    // Kategoriye göre filtrele
+                    filteredProducts = products.filter(product => product.category === category);
+                }
+                
+                renderProducts();
+            }
+
+            // Ürünleri arama
+            function searchProducts(term) {
+                filteredProducts = products.filter(product => 
+                    product.title.toLowerCase().includes(term) || 
+                    product.description.toLowerCase().includes(term) ||
+                    product.category.toLowerCase().includes(term)
+                );
+                
+                currentPage = 1;
+                renderProducts();
+                
+                // Aktif kategori filtresini kaldır
+                document.querySelectorAll('.category-pill').forEach(pill => {
+                    pill.classList.remove('active');
+                });
+            }
+
+            // Ürünleri render etme
+            function renderProducts() {
+                productsGrid.innerHTML = '';
+                
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = Math.min(startIndex + itemsPerPage, filteredProducts.length);
+                const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
+                
+                if (paginatedProducts.length === 0) {
+                    productsGrid.innerHTML = '<div class="no-products" style="grid-column: 1/-1; text-align: center; padding: 50px 0;"><i class="fas fa-search" style="font-size: 3rem; color: rgba(255,255,255,0.3); margin-bottom: 20px;"></i><p>Ürün bulunamadı</p></div>';
+                    paginationElement.innerHTML = '';
+                    return;
+                }
+                
+                paginatedProducts.forEach(product => {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card glass';
+                    
+                    // Yıldız sayısını oluşturma (rating.rate değerine göre)
+                    const rating = product.rating.rate;
+                    const fullStars = Math.floor(rating);
+                    const halfStar = rating - fullStars >= 0.5;
+                    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+                    
+                    let starsHTML = '';
+                    for (let i = 0; i < fullStars; i++) {
+                        starsHTML += '<i class="fas fa-star"></i>';
+                    }
+                    if (halfStar) {
+                        starsHTML += '<i class="fas fa-star-half-alt"></i>';
+                    }
+                    for (let i = 0; i < emptyStars; i++) {
+                        starsHTML += '<i class="far fa-star"></i>';
+                    }
+                    
+                    const priceHTML = product.hasDiscount 
+                        ? `<span class="current-price">₺${product.price.toFixed(2)}</span>
+                           <span class="original-price">₺${product.originalPrice.toFixed(2)}</span>`
+                        : `<span class="current-price">₺${product.price.toFixed(2)}</span>`;
+                    
+                    const discountBadge = product.hasDiscount 
+                        ? `<div class="discount-badge">-${product.discountRate}%</div>` 
+                        : '';
+                    
+                    productCard.innerHTML = `
+                        <div class="product-image">
+                            <img src="${product.image}" alt="${product.title}">
+                            ${discountBadge}
+                        </div>
+                        <div class="product-details">
+                            <h3 class="product-title">${product.title}</h3>
+                            <p class="product-description">${product.description}</p>
+                            <div class="product-price">
+                                ${priceHTML}
+                            </div>
+                            <div class="product-rating">
+                                <div class="stars">
+                                    ${starsHTML}
+                                </div>
+                                <span class="rating-count">(${product.rating.count})</span>
+                            </div>
+                            <div class="product-actions">
+                                <button class="add-to-cart" data-id="${product.id}">Sepete Ekle</button>
+                                <button class="wishlist-btn" data-id="${product.id}">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    productsGrid.appendChild(productCard);
+                });
+                
+                // Sepete ekle butonlarını dinleme
+                document.querySelectorAll('.add-to-cart').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const productId = parseInt(this.getAttribute('data-id'));
+                        addToCart(productId);
+                    });
+                });
+                
+                // Favori butonlarını dinleme
+                document.querySelectorAll('.wishlist-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const icon = this.querySelector('i');
+                        
+                        if (icon.classList.contains('far')) {
+                            icon.classList.remove('far');
+                            icon.classList.add('fas');
+                            this.style.color = '#ff5252';
+                            showNotification('Ürün favorilere eklendi!');
+                        } else {
+                            icon.classList.remove('fas');
+                            icon.classList.add('far');
+                            this.style.color = 'white';
+                            showNotification('Ürün favorilerden çıkarıldı!');
+                        }
+                    });
+                });
+                
+                // Sayfalama oluşturma
+                renderPagination();
+            }
+
+            // Sayfalama oluşturma
+            function renderPagination() {
+                paginationElement.innerHTML = '';
+                const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+                
+                if (totalPages <= 1) {
+                    return;
+                }
+                
+                // Önceki sayfa butonu
+                if (currentPage > 1) {
+                    const prevButton = document.createElement('button');
+                    prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                    prevButton.addEventListener('click', () => {
+                        currentPage--;
+                        renderProducts();
+                        window.scrollTo({
+                            top: document.querySelector('.products-section').offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    });
+                    paginationElement.appendChild(prevButton);
+                }
+                
+                // Sayfa numaraları
+                for (let i = 1; i <= totalPages; i++) {
+                    // Çok fazla sayfa varsa sadece sınırlı sayıda göster
+                    if (
+                        i === 1 || 
+                        i === totalPages || 
+                        i === currentPage || 
+                        i === currentPage - 1 || 
+                        i === currentPage + 1
+                    ) {
+                        const pageButton = document.createElement('button');
+                        pageButton.textContent = i;
+                        
+                        if (i === currentPage) {
+                            pageButton.classList.add('active');
+                        }
+                        
+                        pageButton.addEventListener('click', () => {
+                            currentPage = i;
+                            renderProducts();
+                            window.scrollTo({
+                                top: document.querySelector('.products-section').offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        });
+                        
+                        paginationElement.appendChild(pageButton);
+                    } else if (
+                        (i === currentPage - 2 && currentPage > 3) || 
+                        (i === currentPage + 2 && currentPage < totalPages - 2)
+                    ) {
+                        const ellipsis = document.createElement('span');
+                        ellipsis.textContent = '...';
+                        ellipsis.style.margin = '0 5px';
+                        ellipsis.style.color = 'var(--text-color)';
+                        paginationElement.appendChild(ellipsis);
+                    }
+                }
+                
+                // Sonraki sayfa butonu
+                if (currentPage < totalPages) {
+                    const nextButton = document.createElement('button');
+                    nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                    nextButton.addEventListener('click', () => {
+                        currentPage++;
+                        renderProducts();
+                        window.scrollTo({
+                            top: document.querySelector('.products-section').offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    });
+                    paginationElement.appendChild(nextButton);
+                }
+            }
+
+            // Sepete ürün ekleme
+            function addToCart(productId) {
+                const product = products.find(p => p.id === productId);
+                if (!product) return;
+                
+                const existingItem = cart.find(item => item.id === productId);
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id: product.id,
+                        title: product.title,
+                        price: product.price,
+                        image: product.image,
+                        quantity: 1
+                    });
+                }
+                
+                saveCart();
+                updateCartUI();
+                showNotification(`${product.title} sepete eklendi!`);
+            }
+
+            // Sepetten ürün çıkarma
+            function removeFromCart(productId) {
+                cart = cart.filter(item => item.id !== productId);
+                saveCart();
+                updateCartUI();
+                showNotification('Ürün sepetten çıkarıldı!');
+            }
+
+            // Sepet ürün miktarını güncelleme
+            function updateCartItemQuantity(productId, quantity) {
+                const item = cart.find(item => item.id === productId);
+                if (item) {
+                    item.quantity = quantity;
+                    if (item.quantity <= 0) {
+                        removeFromCart(productId);
+                    } else {
+                        saveCart();
+                        updateCartUI();
+                    }
+                }
+            }
+
+            // Sepeti localStorage'a kaydetme
+            function saveCart() {
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+
+            // Sepeti localStorage'dan yükleme
+            function loadCart() {
+                const savedCart = localStorage.getItem('cart');
+                if (savedCart) {
+                    try {
+                        cart = JSON.parse(savedCart);
+                        updateCartUI();
+                    } catch (e) {
+                        console.error('Sepet yüklenirken hata oluştu:', e);
+                        cart = [];
+                    }
+                }
+            }
+
+            // Sepet UI'ını güncelleme
+            function updateCartUI() {
+                // Sepet sayısını güncelleme
+                const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+                cartCountElement.textContent = totalItems;
+                
+                // Sepet boşsa
+                if (cart.length === 0) {
+                    emptyCartElement.style.display = 'block';
+                    cartItemsContainer.innerHTML = '';
+                    cartItemsContainer.appendChild(emptyCartElement);
+                    subtotalElement.textContent = '₺0.00';
+                    return;
+                }
+                
+                // Sepet doluysa
+                emptyCartElement.style.display = 'none';
+                cartItemsContainer.innerHTML = '';
+                
+                let subtotal = 0;
+                
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    subtotal += itemTotal;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <div class="cart-item-image">
+                            <img src="${item.image}" alt="${item.title}">
+                        </div>
+                        <div class="cart-item-info">
+                            <h3 class="cart-item-title">${item.title}</h3>
+                            <div class="cart-item-price">₺${item.price.toFixed(2)}</div>
+                            <div class="cart-quantity">
+                                <button class="quantity-btn decrease" data-id="${item.id}">-</button>
+                                <input type="number" class="quantity-input" value="${item.quantity}" min="1" max="99" data-id="${item.id}">
+                                <button class="quantity-btn increase" data-id="${item.id}">+</button>
+                            </div>
+                        </div>
+                        <button class="remove-item" data-id="${item.id}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    `;
+                    
+                    cartItemsContainer.appendChild(cartItem);
+                });
+                
+                // Toplam fiyatı güncelleme
+                subtotalElement.textContent = `₺${subtotal.toFixed(2)}`;
+                
+                // Ürün silme butonlarını dinleme
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const productId = parseInt(this.getAttribute('data-id'));
+                        removeFromCart(productId);
+                    });
+                });
+                
+                // Miktar butonlarını dinleme
+                document.querySelectorAll('.quantity-btn.decrease').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const productId = parseInt(this.getAttribute('data-id'));
+                        const item = cart.find(item => item.id === productId);
+                        if (item && item.quantity > 1) {
+                            updateCartItemQuantity(productId, item.quantity - 1);
+                        } else {
+                            removeFromCart(productId);
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('.quantity-btn.increase').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const productId = parseInt(this.getAttribute('data-id'));
+                        const item = cart.find(item => item.id === productId);
+                        if (item) {
+                            updateCartItemQuantity(productId, item.quantity + 1);
+                        }
+                    });
+                });
+                
+                document.querySelectorAll('.quantity-input').forEach(input => {
+                    input.addEventListener('change', function() {
+                        const productId = parseInt(this.getAttribute('data-id'));
+                        const quantity = parseInt(this.value) || 1;
+                        updateCartItemQuantity(productId, quantity);
+                    });
+                });
+            }
+
+            // Sepet panelini açıp kapama
+            function toggleCart() {
+                const cartPanel = document.querySelector('.cart-panel');
+                cartPanel.classList.toggle('active');
+                
+                if (cartPanel.classList.contains('active')) {
+                    overlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            // Aktif kategoriyi ayarlama
+            function setActiveCategory(category) {
+                document.querySelectorAll('.category-pill').forEach(pill => {
+                    if (pill.getAttribute('data-category') === category) {
+                        pill.classList.add('active');
+                    } else {
+                        pill.classList.remove('active');
+                    }
+                });
+            }
+
+            // Bildirim gösterme
+            function showNotification(message) {
+                notificationElement.textContent = message;
+                notificationElement.classList.add('show');
+                
+                setTimeout(() => {
+                    notificationElement.classList.remove('show');
+                }, 3000);
+            }
+
+            // Geri sayım sayacı
+            function updateCountdown() {
+                const days = document.getElementById('countdown-days');
+                const hours = document.getElementById('countdown-hours');
+                const minutes = document.getElementById('countdown-minutes');
+                const seconds = document.getElementById('countdown-seconds');
+                
+                let sec = parseInt(seconds.textContent);
+                let min = parseInt(minutes.textContent);
+                let hr = parseInt(hours.textContent);
+                let day = parseInt(days.textContent);
+                
+                sec--;
+                
+                if (sec < 0) {
+                    sec = 59;
+                    min--;
+                    
+                    if (min < 0) {
+                        min = 59;
+                        hr--;
+                        
+                        if (hr < 0) {
+                            hr = 23;
+                            day--;
+                            
+                            if (day < 0) {
+                                day = 0;
+                                hr = 0;
+                                min = 0;
+                                sec = 0;
+                            }
+                        }
+                    }
+                }
+                
+                days.textContent = day;
+                hours.textContent = hr < 10 ? '0' + hr : hr;
+                minutes.textContent = min < 10 ? '0' + min : min;
+                seconds.textContent = sec < 10 ? '0' + sec : sec;
+            }
+            
+            setInterval(updateCountdown, 1000);
+            
+            // Animasyon efektleri
+            const animatedElements = document.querySelectorAll('.section-title, .testimonial-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
